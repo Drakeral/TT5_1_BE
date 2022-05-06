@@ -1,0 +1,554 @@
+{
+	"info": {
+		"_postman_id": "2e214529-0560-43ac-a549-73cb4c3297d7",
+		"name": "TT5_1_BE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/ping",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"john username2\",\r\n    \"password\": \"john password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/user/login",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user101\",\r\n    \"password\": \"123456\",\r\n    \"name\": \"Jacky\",\r\n    \"appointment\": \"Project Lead\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/user/create",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "project create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"RTF\",\r\n    \"description\": \"Realtime Face Recognition\",\r\n    \"budget\": 12000,\r\n    \"user_id\": \"9c6db5a1-07a0-480e-be06-3eabc3814fd0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/project",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"project"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "project list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/project/",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"project",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "project get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/project/136b7066-19c4-41e7-a3ca-7f09ead4e069",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"project",
+						"136b7066-19c4-41e7-a3ca-7f09ead4e069"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "project update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"project 1\",\r\n    \"description\": \"this is project 1, update\",\r\n    \"budget\": 999.99,\r\n    \"user_id\": \"297d3b57-f93f-418c-9f6c-43ef5bfe5bdc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/project/07ff7bbd-1b91-48a6-a811-cc26ccffaf4c",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"project",
+						"07ff7bbd-1b91-48a6-a811-cc26ccffaf4c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "project delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/project/bb56762b-a8a5-4a3b-8b19-647859885b18",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"project",
+						"bb56762b-a8a5-4a3b-8b19-647859885b18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Hardware\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/category",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/category/",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"category",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/category/881bf297-47d0-4583-bd9e-bf44fab86bf8",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"category",
+						"881bf297-47d0-4583-bd9e-bf44fab86bf8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"category 1 update\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/category/881bf297-47d0-4583-bd9e-bf44fab86bf8",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"category",
+						"881bf297-47d0-4583-bd9e-bf44fab86bf8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/category/e61ee2c5-ecfa-4a2d-98fe-2bb59948d701",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"category",
+						"e61ee2c5-ecfa-4a2d-98fe-2bb59948d701"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "expense create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Server Maintenance\",\r\n    \"description\": \"Server maintenance and upgrading work to incorporate BC plans\",\r\n    \"amount\": 30000,\r\n    \"project_id\": \"62960a1f-c652-4dd5-8c16-b63b499c2f39\",\r\n    \"category_id\": \"c15182ce-f29a-44f2-a31c-bb0c6eed9421\",\r\n    \"user_id\": \"9c6db5a1-07a0-480e-be06-3eabc3814fd0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/expense",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"expense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "expense list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/expense/",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"expense",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "expense get",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/expense/36c36355-cd40-4622-bdc0-a79154d53d43",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"expense",
+						"36c36355-cd40-4622-bdc0-a79154d53d43"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "expense update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"expense 3 update\",\r\n    \"description\": \"expense desc\",\r\n    \"amount\": 99.99,\r\n    \"project_id\": \"07ff7bbd-1b91-48a6-a811-cc26ccffaf4c\",\r\n    \"category_id\": \"881bf297-47d0-4583-bd9e-bf44fab86bf8\",\r\n    \"user_id\": \"297d3b57-f93f-418c-9f6c-43ef5bfe5bdc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/expense/f0aea1c3-a45b-4249-ad62-f69e7b76dbdf",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"expense",
+						"f0aea1c3-a45b-4249-ad62-f69e7b76dbdf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "expense delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-1234567533.herokuapp.com/expense/36c36355-cd40-4622-bdc0-a79154d53d43",
+					"protocol": "https",
+					"host": [
+						"test-1234567533",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"expense",
+						"36c36355-cd40-4622-bdc0-a79154d53d43"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
