@@ -148,7 +148,12 @@ class logic:
             return {"error": "missing field required"}
         
         current_datetime = get_datetime()
-        current_user = payload["user_id"]
+        user_id = payload["user_id"]
+        u_db = Database("user")
+        user = u_db.get_single_data(user_id)
+        if not user:
+            return {"error": "user_id not exist"}
+        current_user = user["name"]
         payload["id"] = generate_uuid()
         payload["created_at"] = current_datetime
         payload["created_by"] = current_user
@@ -167,9 +172,21 @@ class logic:
         if not validate_requre_field(payload, required):
             return {"error": "missing field required"}
 
+        user_id = payload["user_id"]
+        u_db = Database("user")
+        user = u_db.get_single_data(user_id)
+        if not user:
+            return {"error": "user_id not exist"}
+        current_user = user["name"]
+
         payload["updated_at"] = get_datetime()
-        payload["updated_by"] = payload["user_id"]
+        payload["updated_by"] = current_user
         d = Database("expense")
+        expense_db = d.get_single_data(id)
+
+        payload["created_at"] = expense_db["created_at"]
+        payload["created_by"] = expense_db["created_by"]
+
         d.update_or_create(id, payload)
         return {"func":"expense_update", "payload": payload}
 
