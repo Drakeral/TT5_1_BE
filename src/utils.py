@@ -2,6 +2,7 @@ import uuid
 import hashlib
 import os
 import random
+import datetime
 
 def generate_uuid():
     return str(uuid.uuid4())
@@ -25,3 +26,6 @@ def validate_requre_field(payload, required):
         if i not in payload.keys():
             return False
     return True
+
+def get_datetime():
+    return str(datetime.datetime.now())

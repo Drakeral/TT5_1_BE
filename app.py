@@ -35,6 +35,12 @@ def user_create():
     return jsonify(logic.user_create(request.get_json())), 200
 
 
+
+
+
+
+
+
 path_project = "/project"
 # list
 @app.route(path_project + "/", methods=['GET'])
@@ -61,7 +67,76 @@ def project_update(id):
 def project_delete(id):
     return jsonify(logic.project_delete(id)), 200
 
+
+
+
+
+
+
+path_category = "/category"
+# list
+@app.route(path_category + "/", methods=['GET'])
+def category_list():
+    return jsonify(logic.category_list()), 200
+
+# get
+@app.route(path_category + "/<id>", methods=['GET'])
+def category_get(id):
+    return jsonify(logic.category_get(id)), 200
+
+# create
+@app.route(path_category + "/", methods=['POST'])
+def category_create():
+    return jsonify(logic.category_create(request.get_json())), 200
+
+# update
+@app.route(path_category + "/<id>", methods=['PUT'])
+def category_update(id):
+    return jsonify(logic.category_update(id, request.get_json())), 200
+
+# delete
+@app.route(path_category + "/<id>", methods=['DELETE'])
+def category_delete(id):
+    return jsonify(logic.category_delete(id)), 200
+
+
+
+
+
+
+
+path_expense = "/expense"
+# list
+@app.route(path_expense + "/", methods=['GET'])
+def expense_list():
+    return jsonify(logic.expense_list()), 200
+
+# get
+@app.route(path_expense + "/<id>", methods=['GET'])
+def expense_get(id):
+    return jsonify(logic.expense_get(id)), 200
+
+# create
+@app.route(path_expense + "/", methods=['POST'])
+def expense_create():
+    return jsonify(logic.expense_create(request.get_json())), 200
+
+# update
+@app.route(path_expense + "/<id>", methods=['PUT'])
+def expense_update(id):
+    return jsonify(logic.expense_update(id, request.get_json())), 200
+
+# delete
+@app.route(path_expense + "/<id>", methods=['DELETE'])
+def expense_delete(id):
+    return jsonify(logic.expense_delete(id)), 200
     
+
+
+
+
+
+
 port = int(os.environ.get('PORT', 8080))
 if __name__ == '__main__':
     app.run(threaded=True, host='0.0.0.0', port=port, debug=False)

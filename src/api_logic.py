@@ -1,5 +1,5 @@
 from src.database import Database
-from src.utils import generate_uuid, hash_new_password, is_correct_password, validate_requre_field
+from src.utils import generate_uuid, hash_new_password, is_correct_password, validate_requre_field, get_datetime
 def ResponseWrapper(payload):
     return {
         "data": payload
@@ -41,6 +41,13 @@ class logic:
         d.insert_data(payload)
         return ResponseWrapper(payload)
 
+
+
+
+
+
+
+
     def project_list():
         d = Database("project")
         return ResponseWrapper(d.get_multiple_data())
@@ -74,3 +81,99 @@ class logic:
         d = Database("project")
         d.remove_data(id)
         return {"func":"project_delete", "payload": id}
+
+
+
+
+
+
+
+
+    def category_list():
+        d = Database("category")
+        return ResponseWrapper(d.get_multiple_data())
+
+    def category_get(id):
+        d = Database("category")
+        return ResponseWrapper(d.get_single_data(id))
+    
+    def category_create(payload):
+        # change according depend on frontend payload
+        # payload = payload["formData"]
+
+        # validation
+        required = ["name"]
+        if not validate_requre_field(payload, required):
+            return {"error": "missing field required"}
+
+        payload["id"] = generate_uuid()
+
+        d = Database("category")
+        d.insert_data(payload)
+        return {"func":"category_create", "payload": payload}
+
+    def category_update(id, payload):
+        
+        d = Database("category")
+        d.update_or_create(id, payload)
+        return {"func":"category_update", "payload": payload}
+
+    def category_delete(id):
+        d = Database("category")
+        d.remove_data(id)
+        return {"func":"category_delete", "payload": id}
+
+
+
+
+
+
+
+
+    def expense_list():
+        d = Database("expense")
+        return ResponseWrapper(d.get_multiple_data())
+
+    def expense_get(id):
+        d = Database("expense")
+        return ResponseWrapper(d.get_single_data(id))
+    
+    def expense_create(payload):
+        # change according depend on frontend payload
+        # payload = payload["formData"]
+
+        # validation
+        required = ["name", "description", "amount", "project_id", "category_id", "user_id"]
+        if not validate_requre_field(payload, required):
+            return {"error": "missing field required"}
+        
+        current_datetime = get_datetime()
+        current_user = payload["user_id"]
+        payload["id"] = generate_uuid()
+        payload["created_at"] = current_datetime
+        payload["created_by"] = current_user
+        payload["updated_at"] = current_datetime
+        payload["updated_by"] = current_user
+        
+
+        d = Database("expense")
+        d.insert_data(payload)
+        return {"func":"expense_create", "payload": payload}
+
+    def expense_update(id, payload):
+        
+        # validation
+        required = ["name", "description", "amount", "project_id", "category_id", "user_id"]
+        if not validate_requre_field(payload, required):
+            return {"error": "missing field required"}
+
+        payload["updated_at"] = get_datetime()
+        payload["updated_by"] = payload["user_id"]
+        d = Database("expense")
+        d.update_or_create(id, payload)
+        return {"func":"expense_update", "payload": payload}
+
+    def expense_delete(id):
+        d = Database("expense")
+        d.remove_data(id)
+        return {"func":"expense_delete", "payload": id}
