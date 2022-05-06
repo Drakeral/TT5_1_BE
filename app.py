@@ -35,6 +35,32 @@ def user_create():
     return jsonify(logic.user_create(request.get_json())), 200
 
 
+path_project = "/project"
+# list
+@app.route(path_project + "/", methods=['GET'])
+def project_list():
+    return jsonify(logic.project_list()), 200
+
+# get
+@app.route(path_project + "/<id>", methods=['GET'])
+def project_get(id):
+    return jsonify(logic.project_get(id)), 200
+
+# create
+@app.route(path_project + "/", methods=['POST'])
+def project_create():
+    return jsonify(logic.project_create(request.get_json())), 200
+
+# update
+@app.route(path_project + "/<id>", methods=['PUT'])
+def project_update(id):
+    return jsonify(logic.project_update(id, request.get_json())), 200
+
+# delete
+@app.route(path_project + "/<id>", methods=['DELETE'])
+def project_delete(id):
+    return jsonify(logic.project_delete(id)), 200
+
     
 port = int(os.environ.get('PORT', 8080))
 if __name__ == '__main__':

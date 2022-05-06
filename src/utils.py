@@ -20,4 +20,8 @@ def is_correct_password(salt: bytes, password: str, pw_from_db):
     else:
         return False
 
-    
+def validate_requre_field(payload, required):
+    for i in required:
+        if i not in payload.keys():
+            return False
+    return True
