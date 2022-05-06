@@ -5,3 +5,4 @@ py-bcrypt
 pymongo
 gunicorn
 Werkzeug
+pymongo[srv]
