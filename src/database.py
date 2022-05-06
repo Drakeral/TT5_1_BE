@@ -7,8 +7,11 @@ from bson import ObjectId
 
 class Database:
     def __init__(self, collection) -> None:
+
         # CONNECT TO DATABASE
-        connection = pymongo.MongoClient("localhost", 27017)
+        host = "mongodb+srv://dbUser:pass@cluster0.bew6z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        local = "localhost"
+        connection = pymongo.MongoClient(host, 27017)
         
         # CREATE DATABASE
         database = connection['my_database']
